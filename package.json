@@ -1,0 +1,16 @@
+{
+  "name": "smart-paper-generator",
+  "private": true,
+  "workspaces": [
+    "frontend",
+    "backend"
+  ],
+  "scripts": {
+    "dev": "concurrently -k -n api,web \"npm:dev --workspace=backend\" \"npm:dev --workspace=frontend\"",
+    "build": "npm run build --workspace=backend && npm run build --workspace=frontend",
+    "test": "npm run test --workspace=backend"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1"
+  }
+}
